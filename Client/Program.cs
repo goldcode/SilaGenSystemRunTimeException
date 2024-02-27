@@ -8,9 +8,8 @@ var connector = new ServerConnector(new DiscoveryExecutionManager());
 var discovery = new ServerDiscovery(connector);
 var executionManagerFactory = new DiscoveryExecutionManager();
 
-var server = discovery
-    .GetServers(TimeSpan.FromSeconds(3), nic => true)
-    .First();
+var server = discovery.GetServers(TimeSpan.FromSeconds(3), nic => true).FirstOrDefault() ?? 
+    throw new InvalidOperationException("no servers found");
 
 var silaClient = new TestServiceClient(server.Channel, executionManagerFactory);
 silaClient.Initialize();

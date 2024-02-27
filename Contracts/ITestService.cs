@@ -18,7 +18,7 @@ namespace Sila.Contracts
         /// acquires an image
         /// </summary>
         /// <returns></returns>
-        [Observable]
-        IObservableCommand AcquireImage();
+        //[Observable]
+        //IObservableCommand AcquireImage();
     }
 }
